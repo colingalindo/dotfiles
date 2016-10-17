@@ -23,8 +23,6 @@
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
-  Plug 'tpope/vim-fugitive'
-
   " Allow vim-surround to be repeated by .
   Plug 'tpope/vim-repeat'
 
