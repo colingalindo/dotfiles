@@ -1,0 +1,755 @@
+  " Must of this has been resourced from main of the github dotfile repos
+  " lots used from: https://github.com/rdlugosz/dotfiles/blob/master/vimrc
+  set nocompatible		" be iMproved
+
+  " Plugins
+  call plug#begin('~/.vim/plugged')
+
+  " Vim Airline improves the look & functionality of the statusline.
+  Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+
+  " Surround.vim lets you add/change/remove surrounding chars and tags
+  " https://github.com/tpope/vim-surround
+  Plug 'tpope/vim-surround'
+
+  " Handlebars mode for vim
+  Plug 'mustache/vim-mustache-handlebars'
+
+  " Provides additional text objects
+  Plug 'wellle/targets.vim'
+
+  Plug 'mklabs/vim-backbone'
+
+  Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+
+  Plug 'tpope/vim-fugitive'
+
+  " Allow vim-surround to be repeated by .
+  Plug 'tpope/vim-repeat'
+
+" Commentary.vim provides commenting for many languages
+" Use gcc to comment out a line (takes a count), gc to comment out the
+" target of a motion (for example, gcap to comment out a paragraph),
+" gc in visual mode to comment out the selection, and gc in operator
+" pending mode to target a comment.
+" https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'
+
+" Pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
+
+" Add a scratch pad
+Plug 'vim-scripts/scratch.vim'
+
+" Autoclose brackets
+Plug 'MartinLafreniere/vim-PairTools'
+
+" CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder.
+" Open with CTRL-P, then:
+"   Press <c-f> and <c-b> to cycle between modes.
+"   Press <c-d> to switch to filename only search instead of full path.
+"   Press <c-r> to switch to regexp mode.
+" https://github.com/ctrlpvim/ctrlp.vim
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Tabular.vim is a plugin that aligns text by some pattern, e.g.:
+" :Tab /,
+" will align lines by their commas. We have some mappings set up later, like
+" <leader>t: to align on symbals and <leader>t= to align on assignment.
+" https://github.com/godlygeek/tabular
+Plug 'godlygeek/tabular', { 'on': ['Tabularize'] }
+
+" Indent Guides is a plugin for visually displaying indent levels in Vim.
+" Toggle with <leader>ig
+" https://github.com/nathanaelkane/vim-indent-guides
+Plug 'nathanaelkane/vim-indent-guides'
+
+" Creates a new text object 'i' for indentation. E.g.,
+"   vii will select block of text at current indent level
+"   vai will select block of text at current indent level, plus line above
+"   vaI selects block of text at current indent level, plus line above & below
+" http://www.vim.org/scripts/script.php?script_id=3037
+Plug 'michaeljsmith/vim-indent-object'
+
+" Syntax checker for many languages
+" https://github.com/scrooloose/syntastic
+Plug 'scrooloose/syntastic'
+" https://github.com/pmsorhaindo/syntastic-local-eslint.vim
+Plug 'pmsorhaindo/syntastic-local-eslint.vim'
+
+" Project level configurations for tabs and new lines
+Plug 'editorconfig/editorconfig-vim'
+
+" Searches Dash.app for the word under the cursor with <leader>d
+" https://github.com/rizzatti/dash.vim
+Plug 'rizzatti/dash.vim'
+
+" Adds the :G family of commands for grepping. Automatically decides between
+" Ag, Ack and Grep depending on what's available.
+" https://github.com/rizzatti/greper.vim
+Plug 'rizzatti/greper.vim'
+
+" This is a dependency of Dash.vim and Grepper.vim
+" https://github.com/rizzatti/funcoo.vim
+Plug 'rizzatti/funcoo.vim'
+
+" SnipMate aims to provide support for textual snippets, similar to TextMate
+" or other Vim plugins. Activate by typing some text and hitting <tab>.
+" Snipmate depends on tlib and mw-utils.
+" https://github.com/garbas/vim-snipmate
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+" Actual snippets
+Plug 'honza/vim-snippets'
+" Snippets for react
+" https://github.com/justinj/vim-react-snippets
+Plug 'justinj/vim-react-snippets'
+
+" Shows git diff in the gutter
+" https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'
+
+" Adds git commands
+Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
+
+" show multipanes when editing a COMMIT_EDITMSG
+Plug 'rhysd/committia.vim'
+
+" Extended % matching for HTML and other languages
+Plug 'vim-scripts/matchit.zip'
+
+" Vim Hard mode
+" Disables using hjkl multiple times in a row
+" https://github.com/takac/vim-hardtime
+Plug 'takac/vim-hardtime'
+
+" Reopen files where you left off last time
+" https://github.com/dietsche/vim-lastplace
+Plug 'dietsche/vim-lastplace'
+
+" Add file manip commands like Remove, Move, Rename, SudoWrite
+Plug 'tpope/vim-eunuch'
+
+" Easier agrument wrapping
+Plug 'FooSoft/vim-argwrap'
+
+" Save sessions
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
+
+" Language syntax support
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'tpope/vim-git'
+
+" Tools and environment to make Vim superb for developing with Node.jS
+" https://github.com/moll/vim-node
+Plug 'moll/vim-node', { 'for': 'javascript' }
+
+" Javascript Syntax Support
+Plug 'elzr/vim-json', { 'for': 'json' }
+" Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx']  }" Javascript Syntax
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']  }" Javascript Syntax
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] } " Javascript Indenting
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] } " JSX Support for React
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx'] } "JSDoc suto-snippets
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] } " Extras for javascript Libraries
+
+" PHP Syntax Supoort
+" https://github.com/StanAngeloff/php.vim
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+
+" PHP Refactor tool
+" https://github.com/adoy/vim-php-refactoring-toolbox
+" Plug 'adoy/vim-php-refactoring-toolbox'
+
+" Emoji! 😄
+Plug 'junegunn/vim-emoji'
+
+" Color schemes
+Plug 'altercation/vim-colors-solarized'
+
+" Plugins to load on OS X only
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin\n"
+    " Suggestion and Tab completion
+    " Requires a locally-compiled library; see docs. Note this will work
+    " fine on Linux, but disabling there since we mostly code on OS X and it
+    " can be a hassle to compile the dependent libraries.
+    " https://github.com/Valloric/YouCompleteMe
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+  endif
+endif
+
+call plug#end()
+
+" Enable file type detection.
+filetype plugin indent on	" required!
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SETTINGS
+" tpope/vim-sensible is inlined here & used as a baseline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('autocmd')
+  filetype plugin indent on
+endif
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable     " enable syntax processing
+endif
+
+set smartindent     " make indenting better
+set autoindent		" preserve indent level on newlines
+set expandtab		" use spaces, not tabs
+set tabstop=4		" a tab is 4 spaces
+set shiftwidth=4	" an autoindent (with <<) is 4 spaces
+set softtabstop=4	" tabwidth in insert mode
+set smarttab		" use shiftwidth/tabstop based on context
+
+
+set backspace=indent,eol,start " Allow backspace in insert mode
+
+set lazyredraw      " redraw only when we need to.
+
+" By default, complete is set to: complete=.,w,b,u,t,i
+" The 'i' means 'included files' and can result in major slowdowns
+set complete-=i
+
+" Don't assume numbers starting with zero are octal
+set nrformats-=octal
+
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+set incsearch		" incremental searching
+set nohlsearch		" nohighlight matches
+set ignorecase		" serach are case insensitive...
+set smartcase		" ... unless they contain at least one capital letter
+
+set laststatus=2	" always show the status line
+set ruler			" show cursor position (overridden by statusline)
+set showcmd			" show partial command in bottom-right
+set showtabline=1	" Show tabline only when more than one tab exists
+set title           " Show the filename in the window titlebar
+
+set wildmenu 		" use tab completion on command line
+
+" Better tab completion
+set wildmode=longest,list
+
+set showmatch		" Show the matching brace
+
+" Controls the number of lines/chars to keep visible before scrolling
+set scrolloff=3
+set sidescrolloff=10
+set sidescroll=1
+set display+=lastline " show the last line that fits in window (vs '@@@@')
+
+if &encoding ==# 'latin1' && has('gui_running')
+  set encoding=utf-8
+endif
+
+" Changes what Vim displays for special chars like trailing space & tabs
+set nolist " Don't show invisible characters
+let &listchars = "tab:>-,trail:\u2591,extends:>,precedes:<,nbsp:\u00b7"
+
+" The semicolon will cause Vim to search back (up) in the directory tree
+if has('path_extra')
+  setglobal tags-=./tags tags^=./tags;
+endif
+
+set autoread 			" reload unchanged buffers when file changed outside vim
+set fileformats+=mac	" should already be the default when compiled on mac
+
+" remember more than 20 previous search/commands
+if &history < 1000
+  set history=1000
+endif
+
+" max number of tab page that can be opened
+if &tabpagemax < 50
+  set tabpagemax=50
+endif
+
+" Control what is preserved in the viminfo file
+"   ! save and restore all-caps-named GLOBAL variables
+"   ' number of files for which we should remember marks
+"   < maximum line count of a register that is saved
+"   s maximum byte count of a register that is saved
+"   h disable the hlsearch when loading viminfo
+"   no '/' specified means use value of 'history' for saving searches
+"   no ':' specified means use value of 'history' for command line history
+"   no '%' specified means don't save/reload the buffer list
+"   no 'n<file>' specified means use default location for .viminfo
+set viminfo=!,'100,<1000,s100,h
+
+set sessionoptions-=options " exclude options from the :mksession command
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+" Makes the % command jump to matching HTML tags, if/else/endif in Vim scripts, etc.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+" Set colorscheme
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux'
+  set t_Co=16
+endif
+if $TERM =~ "-256color"
+  set t_Co=256
+endif
+set background=dark
+silent! colorscheme solarized
+let g:airline_theme='solarized'		" Colors for vim-airline
+
+" Allow gx to open urls in the browser
+let g:netrw_browsex_viewer = 'open'
+
+" Centralize backups, swapfiles and undo history
+set swapfile
+set directory=~/.vim/swaps//
+set backup
+set backupdir=~/.vim/backups//
+if has('persistent_undo')
+  if exists("&undodir")
+    set undofile
+    set undodir=~/.vim/undo//
+    set undoreload=10000
+  endif
+endif
+set undolevels=10000
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
+
+" Use relative line numbers
+if exists("&relativenumber")
+  set relativenumber
+  autocmd BufReadPost * set relativenumber
+endif
+
+" Line numbers
+set number
+
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+
+set nowrap        " don't wrap lines (we map leader-W to toggle)
+set linebreak     " when wrapping, wrap at word boundaries (vs last char)
+if exists('+breakindent')
+  set breakindent " preserves the indent level of wrapped lines
+  set showbreak=↪ " illustrate wrapped lines
+  set wrap        " wrapping with breakindent is tolerable
+endif
+" When on first/last char in a line, allow left/right to navigate
+" through to the prev/next line.
+set whichwrap+=<,>,h,l
+
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent   " fold based on indent level
+
+" Create new splits to the right and below
+set splitright
+set splitbelow
+
+" allow modified buffers to be hidden
+set hidden
+
+" exclusions from the autocomplete menu
+set wildignore+=*/tmp/*
+
+" mouse works in most terminal software we use...
+set mouse=a
+
+" change the cursor shape depending on mode
+" see: http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" highlight current line
+set cursorline
+
+" Set up vertical ruler at 80 characters in
+if exists('+colorcolumn')
+  set colorcolumn=80,120
+endif
+
+" Don't try to highlight lines longer than 800 characters.
+set synmaxcol=800
+
+" Vim-session Config
+let g:session_autosave = 'no'
+
+" vim-json Config
+let g:vim_json_syntax_conceal = 0
+
+" YouCompleteMe Config
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+" Remove <TAB> because it conflicts with Snipmate
+" Note that it's easier to navigate the suggestions with C-n/C-p anyway
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+" easier emojis!
+set completefunc=emoji#complete
+
+" Argwrap config
+nnoremap <silent> <leader>a :ArgWrap<CR>
+let g:argwrap_tail_comma = 1
+
+" Gitgutter config
+let g:gitgutter_sign_column_always = 1
+
+" Syntastic config
+let g:syntastic_enable_signs = 1 " check if this slows things down
+let g:syntastic_check_on_open = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_auto_jump = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_php_phpcs_args="--standard=PSR2"
+
+" JSDoc config
+let g:jsdoc_enable_es6 = 1
+
+" ctrlp config
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])|__init__\.py'
+let g:ctrlp_show_hidden = 0
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_clear_cache_on_exit = 0
+" Use The Silver Searcher if available
+if executable('ag')
+  " Use ag in CtrlP
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --depth 7'
+
+  " Skip caching since ag is so fast
+  let g:ctrlp_use_caching = 0
+endif
+nmap ; :CtrlPBuffer<CR>
+nmap <silent> <leader>a <Plug>GreperBangWord
+
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Scratch
+command! ScratchToggle call ScratchToggle()
+
+function! ScratchToggle()
+    if exists("w:is_scratch_window")
+        unlet w:is_scratch_window
+        exec "q"
+    else
+        exec "normal! :Sscratch\<cr>\<C-W>L"
+        let w:is_scratch_window = 1
+    endif
+endfunction
+
+nnoremap <silent> <leader><tab> :ScratchToggle<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" STATUS LINE (won't see much unless we disable Airline)
+" see: :help 'statusline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" status bar
+" set statusline=%F%m%r%h%w\  "fullpath and status modified sign
+set statusline=%f%m%r%h%w\  "path and status modified sign
+set statusline+=\ %y "filetype
+set statusline+=%=
+set statusline+=\ [%l\/%L:\%v] "line number and column number
+
+" Airline.vim customizations
+" Use the poweline fonts to make airline pretty
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" :map       Normal, Visual and Operator-pending
+" :vmap      Visual
+" :nmap      Normal
+" :omap      Operator-pending (Eg: dw where d is operator character and w is motion character)
+" :map!      Insert and Command-line
+" :imap      Insert
+" :cmap      Command-line
+"
+" Quick ESC
+" Some people map jk for this, but it makes Dijkstra sad.
+imap kj <ESC>
+imap jj <ESC>
+
+" Insert the hashrocket with CTRL+l
+imap <c-l> <space>=><space>
+
+" map j to gj and k to gk, so line navigation ignores line wrap
+" ...but only if the count is undefined (otherwise, things like 4j
+" break if wrapped LINES are present)
+nmap <expr> j (v:count == 0 ? 'gj' : 'j')
+nmap <expr> k (v:count == 0 ? 'gk' : 'k')
+
+" Navigate splits more easily
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+noremap <leader>v <C-w>v
+
+" List navigation
+nnoremap <left>  :cprev<cr>zvzz
+nnoremap <right> :cnext<cr>zvzz
+nnoremap <up>    :lprev<cr>zvzz
+nnoremap <down>  :lnext<cr>zvzz
+
+" Key repeat hack for resizing splits, i.e., <C-w>+++- vs <C-w>+<C-w>+<C-w>-
+" see: http://www.vim.org/scripts/script.php?script_id=2223
+nmap <C-w>+ <C-w>+<SID>ws
+nmap <C-w>- <C-w>-<SID>ws
+nmap <C-w>> <C-w>><SID>ws
+nmap <C-w>< <C-w><<SID>ws
+nnoremap <script> <SID>ws+ <C-w>+<SID>ws
+nnoremap <script> <SID>ws- <C-w>-<SID>ws
+nnoremap <script> <SID>ws> <C-w>><SID>ws
+nnoremap <script> <SID>ws< <C-w><<SID>ws
+nmap <SID>ws <Nop>
+
+" Tab handling
+nnoremap <leader>( :tabprev<cr>
+nnoremap <leader>) :tabnext<cr>
+nnoremap <C-t> :tabnew<CR>
+"nnoremap <C-j> :tabprevious<CR>
+"nnoremap <C-k> :tabnext<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
+"inoremap <C-j> <Esc>:tabprevious<CR>i
+"inoremap <C-k> <Esc>:tabnext<CR>i
+
+" Allow writing via sudo
+cnoremap w!! w !sudo tee > /dev/null %
+
+" Make crl-a work in command mode
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" Allow for some common quit/write cmd typos
+command! Q q " Bind :Q to :q
+command! W w " Bind :W to :w
+command! Qall qall
+
+" reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" Back to the buffer we came from
+nmap <C-e> :e#<CR>
+
+" Easy bouncing buffers
+nmap <C-n> :bnext<CR>
+nmap <C-p> :bprev<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LEADER MAPPINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let spacebar double as our leader, for great justice
+let mapleader = " " " <space>
+let maplocalleader = "\\"
+" nmap <space> <leader>
+" xmap <space> <leader>
+" nmap <space><space> <leader><leader>
+" xmap <space><space> <leader><leader>
+
+" xmap includes Visual mode but not Select mode (which we don't often use, but
+" if we did we'd expect hitting space to replace the selected text with a
+" space char).
+" xmap <space> <leader>
+
+" Reload our .vimrc
+nmap <leader>~ :source ~/.vimrc<CR>:redraw!<CR>:AirlineRefresh<CR>:echo "~/.vimrc reloaded!"<CR>
+
+" Open our .vimrc
+nmap <Leader>~~ :e $MYVIMRC<CR>
+
+" Open file
+nmap <leader>o :CtrlP<CR>
+
+" Write file
+nmap <leader>w :w<CR>
+
+" Delete buffer
+nmap <leader>q :bd<CR>
+
+" Toggle spelling
+nmap <leader>s :set invspell<CR>:set spell?<CR>
+
+" Fix Spelling
+nnoremap <Leader>fs 1z=
+
+" Toggle wrap
+nmap <leader>W :set invwrap<CR>:set wrap?<CR>
+
+" Open/closes folds
+nnoremap <leader>z za
+
+" Toggle background dark/light with <leader>B
+function! RD_ToggleBackground()
+  if &background == "dark"
+    let &background = "light"
+    let _snark = "Hey, wake up!!"
+  else
+    let &background = "dark"
+    let _snark = "Who turned out the lights???"
+  endif
+
+  if exists(':Airline')
+    AirlineRefresh
+  endif
+  redraw
+  echo _snark
+endfunction
+nmap <silent> <leader>B :call RD_ToggleBackground()<CR>
+
+" Toggle paste mode
+nmap <leader>p :set invpaste<CR>:set paste?<CR>
+
+" upper/lower word
+" (set a mark, visually select inner word, u/U, return to mark)
+nmap <leader>U m`gUiw``
+nmap <leader>L m`guiw``
+
+" Reindent the entire file
+nmap <leader>= gg=G``:echo "reindent global"<CR>
+
+" Toggle match highlight
+nmap <leader>l :set invhlsearch<CR>
+
+
+" Highlight matches when jumping to next
+function! HLNext (blinktime)
+  highlight WhiteOnRed ctermfg=white ctermbg=red
+  let [bufnum, lnum, col, off] = getpos('.')
+  let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+  let target_pat = '\c\%#'.@/
+  let ring = matchadd('WhiteOnRed', target_pat, 101)
+  redraw
+  exec 'sleep ' . a:blinktime . 'm'
+  call matchdelete(ring)
+  redraw
+endfunction
+" Now, remap n/N so they call themselves, center screen & call HLNext
+nnoremap <silent> n nzz:call HLNext(300)<cr>
+nnoremap <silent> N Nzz:call HLNext(300)<cr>
+
+" Tabular.vim
+nnoremap <Leader>t= :Tabularize assignment<CR>
+vnoremap <Leader>t= :Tabularize assignment<CR>
+nnoremap <Leader>t: :Tabularize symbol<CR>
+vnoremap <Leader>t: :Tabularize symbol<CR>
+nnoremap <Leader>t, :Tabularize comma<CR>
+vnoremap <Leader>t, :Tabularize comma<CR>
+
+" Toggle numbers
+nmap <leader>n :setlocal number!<CR><bar>:setlocal relativenumber!<CR>
+
+" Mac OS X-only mappings
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin\n"
+    " Set clipboard to system clipboard
+    set clipboard=unnamed
+    " Search for word under cursor in Dash.app
+    nmap <leader>d <Plug>DashSearch
+    nmap <leader>D <Plug>DashGlobalSearch
+
+    " Use Marked.app to preview Markdown files...
+    " http://stackoverflow.com/questions/9212340/is-there-a-vim-plugin-for-preview-markdown-file
+    function! s:setupMarkup()
+      nmap <leader>M :silent !open -a Marked.app '%:p'<CR>:redraw!<CR>
+    endfunction
+    autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+  endif
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FILE TYPES
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Some file types should wrap their text
+function! RD_SetupWrapping()
+  setlocal wrap
+  setlocal linebreak
+  setlocal textwidth=78
+  setlocal nolist
+endfunction
+
+" Make sure all markdown files have the correct filetype set and setup wrapping
+augroup markdown
+  autocmd!
+  autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+  autocmd FileType markdown call RD_SetupWrapping()
+  autocmd FileType markdown setlocal ts=4 sts=4 sw=4
+augroup END
+
+" enable spell checking on certain files
+augroup Spelling
+  autocmd!
+  autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
+augroup END
+
+augroup vagrant
+  autocmd!
+  autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
+
+" Javascript
+augroup ft_javascript
+    au!
+    " Prettify a hunk of JSON with <localleader>p
+    au FileType javascript nnoremap <buffer> <localleader>p ^vg_:!python -m json.tool<cr>
+    au FileType javascript vnoremap <buffer> <localleader>p :!python -m json.tool<cr>
+augroup END
+
+" }}}
+
+" Vim
+augroup ft_vim
+    au!
+
+    au FileType vim setlocal foldmethod=marker keywordprg=:help
+    au FileType help setlocal textwidth=78
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
+
+" Handle SISTEM Managers crazy file types
+augroup Manager
+  autocmd!
+  autocmd BufNewFile,BufRead *.phph set filetype=php
+  autocmd BufNewFile,BufRead *.php3 set filetype=php
+  autocmd BufNewFile,BufRead *.html set filetype=php
+  autocmd BufNewFile,BufRead *.phtml set filetype=php
+  autocmd BufNewFile,BufRead *.rgt setf rgt
+augroup END
+
+" vim:set ft=vim et sw=2:
