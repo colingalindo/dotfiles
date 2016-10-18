@@ -6,13 +6,12 @@ all: symlinks install_vimplug completion
 symlinks:
 	@ln -sf $(DIR)/bash/bash_profile ~/.bash_profile
 	@ln -sf $(DIR)/bash/bashrc ~/.bashrc
-	@ln -sf $(DIR)/bash/bash_prompt ~/.bash_prompt
-	@ln -sf $(DIR)/bash/aliases ~/.aliases
 	@ln -sf $(DIR)/bash/inputrc ~/.inputrc
 	@ln -sf $(DIR)/vim/vimrc ~/.vimrc
 	@ln -sf $(DIR)/git/gitconfig ~/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global ~/.gitignore_global
 	@ln -sf $(DIR)/.colordiffrc ~/.colordiffrc
+	@ln -sf $(DIR)/.screenrc ~/.screenrc
 
 install_vimplug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

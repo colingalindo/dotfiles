@@ -2,20 +2,25 @@
 PATH=/usr/local/bin:$PATH
 PATH=$HOME/bin:$PATH
 PATH=$PATH:$(npm config --global get prefix)/bin
-export PATH
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export REACT_EDITOR=atom
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/dotfiles/bash/{path,bash_prompt,exports,aliases,functions,extra}; do
   [ -r "$file" ] && source "$file"
 done
 unset file
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
+# bash completion.
+if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+    source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion;
+fi;
+
+# homebrew completion
+if which brew > /dev/null; then
+    source "$(brew --prefix)/etc/bash_completion.d/brew"
+fi;
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

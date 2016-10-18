@@ -1,0 +1,24 @@
+# Editor
+if which vim > /dev/null;
+then
+    export EDITOR=vim
+    alias vi=vim
+else
+    export EDITOR=`which vi`
+fi
+
+# Larger bash history (default is 500)
+export HISTSIZE=10000
+export HISTFILESIZE=$HISTSIZE
+# Erase duplicates
+export HISTCONTROL=erasedups
+
+# Prefer US English and use UTF-8
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
+
+# Color term
+#export TERM="xterm-265color"
+
+# Tell ls to be colourful
+export CLICOLOR=1
