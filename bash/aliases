@@ -7,10 +7,16 @@ fi
 
 alias grep='grep --color=always'
 alias less='less -R'
-alias ls='ls -a'
-alias ll='ls -l'
+
+# List all files colorized in long format
+alias ls="ls -l ${colorflag}"
+alias ll='ls -laho ${colorflag}'
 
 # List only directories
-alias lsd='ls -l | grep "^d"'
+alias lsd='ls -l ${colorflag} | grep "^d"'
+
+# Utilities
+alias df='df -h'
+alias g='git'
 
 alias hometunnel='ssh -fND localhost:10999 colin@colingalindo.ddns.us'

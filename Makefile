@@ -10,8 +10,8 @@ symlinks:
 	@ln -sf $(DIR)/vim/vimrc ~/.vimrc
 	@ln -sf $(DIR)/git/gitconfig ~/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global ~/.gitignore_global
-	@ln -sf $(DIR)/.colordiffrc ~/.colordiffrc
-	@ln -sf $(DIR)/.screenrc ~/.screenrc
+	@ln -sf $(DIR)/colordiffrc ~/.colordiffrc
+	@ln -sf $(DIR)/screenrc ~/.screenrc
 
 install_vimplug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
