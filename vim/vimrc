@@ -138,6 +138,7 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 
 " Language syntax support
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'tpope/vim-git'
 
 " Tools and environment to make Vim superb for developing with Node.jS
@@ -146,12 +147,19 @@ Plug 'moll/vim-node', { 'for': 'javascript' }
 
 " Javascript Syntax Support
 Plug 'elzr/vim-json', { 'for': 'json' }
-" Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx']  }" Javascript Syntax
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']  }" Javascript Syntax
+" Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx']  } " Javascript Syntax
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']  } " Javascript Syntax
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] } " Javascript Indenting
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] } " JSX Support for React
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx'] } "JSDoc suto-snippets
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] } " Extras for javascript Libraries
+
+" Java Syntax
+Plug 'vim-scripts/java.vim'
+
+" Groovy Syntax
+Plug 'vim-scripts/groovy.vim'
 
 " PHP Syntax Supoort
 " https://github.com/StanAngeloff/php.vim
@@ -420,8 +428,9 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_auto_jump = 0
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
 let g:syntastic_php_phpcs_args="--standard=PSR2"
+let g:jsx_ext_required = 0
 
 " JSDoc config
 let g:jsdoc_enable_es6 = 1
@@ -691,6 +700,8 @@ if has("unix")
   endif
 endif
 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILE TYPES
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -740,14 +751,5 @@ augroup ft_vim
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 
-" Handle SISTEM Managers crazy file types
-augroup Manager
-  autocmd!
-  autocmd BufNewFile,BufRead *.phph set filetype=php
-  autocmd BufNewFile,BufRead *.php3 set filetype=php
-  autocmd BufNewFile,BufRead *.html set filetype=php
-  autocmd BufNewFile,BufRead *.phtml set filetype=php
-  autocmd BufNewFile,BufRead *.rgt setf rgt
-augroup END
-
-" vim:set ft=vim et sw=2:
+" vim:set ft=vim et sw=2:}
+hi Normal guibg=NONE ctermbg=NONE

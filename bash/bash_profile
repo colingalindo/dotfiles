@@ -1,7 +1,13 @@
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export ANT_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
+export MAVEN_OPTS="$ANT_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=7777,server=y,suspend=n"
+export ANT_HOME="/usr/local/apache-ant-1.7.0"
+
 # Add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
-PATH=/usr/local/bin:$PATH
 PATH=$HOME/bin:$PATH
 PATH=$PATH:$(npm config --global get prefix)/bin
+PATH=$PATH:$ANT_HOME/bin
+PATH="$PATH:`yarn global bin`"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.

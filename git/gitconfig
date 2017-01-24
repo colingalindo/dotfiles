@@ -7,6 +7,8 @@
   f = fetch --all --prune
   go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
   dm = "!git branch --merged | grep -v '\\*' | grep -v master | grep -v development | grep -v dev | xargs -n 1 git branch -d"
+  rb = "rebase"
+  co = "checkout"
 [color]
   # Use colors in Git commands that are capable of colored output when
   # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
