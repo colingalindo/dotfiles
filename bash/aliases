@@ -19,4 +19,4 @@ alias lsd='ls -l ${colorflag} | grep "^d"'
 alias df='df -h'
 alias g='git'
 
-alias hometunnel='ssh -fND localhost:10999 colin@colingalindo.ddns.us'
+alias hometunnel='ssh -fND localhost:10999 colin@colingalindo.com'

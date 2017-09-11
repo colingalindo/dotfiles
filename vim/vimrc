@@ -439,6 +439,10 @@ let g:syntastic_scss_stylelint=1
 let g:syntastic_css_stylelint=1
 let g:syntastic_php_phpcs_args="--standard=PSR2"
 
+" Markdown preview
+let vim_markdown_preview_toggle = 2
+let vim_markdown_preview_github = 1
+
 " JSX config
 let g:jsx_ext_required = 0
 
