@@ -1,0 +1,8 @@
+export TTC_GITBOT='gitlog'
+export TTC_CONSUMER_KEY='avM2Ef7xKlDt7mpTbDiI55Vpy'
+export TTC_CONSUMER_SECRET='uJ1XqyiucK7SQjBp1RwicjPmAkjyVVKInhc0YC5egrplB127ut'
+export TTC_ACCESS_TOKEN='931075256-tuFYvpAEIkgSQ6ppS3mpS9AVB8jMSFRD3HkEmk8H'
+export TTC_ACCESS_TOKEN_SECRET='kxKYhCyOhabJdol07L5rJlgCJnwKJvbkvCUQOl0krEqWo'
+export TTC_WEATHER='Austin'
+export TTC_CELSIUS=false
+export TTC_REPOS='~/Documents/,~/Documents/Personal/'
