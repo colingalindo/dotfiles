@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Colin Galindo
-	email = cgalindo@homeaway.com
+    email = galindo.colin@gmail.com
 
 [alias]
   f = fetch --all --prune
@@ -11,8 +11,11 @@
   co = "checkout"
   temp = "!git add --all && git commit -m \"Temp commit\" -n"
   untemp = reset HEAD^
+  c = commit
   cs = commit -S
-  rb = rebase -S
+  rbs = rebase -S
+  cp = cherry-pick
+  prettylog = "!git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative \"$1\"..\"$2\""
 
 [color]
   # Use colors in Git commands that are capable of colored output when

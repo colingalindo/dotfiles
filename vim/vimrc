@@ -320,9 +320,9 @@ let g:netrw_browsex_viewer = 'open'
 
 " Centralize backups, swapfiles and undo history
 set swapfile
-set directory=~/.vim/swaps//
+set directory=~/.vim/swaps/
 set backup
-set backupdir=~/.vim/backups//
+set backupdir=~/.vim/backups/
 if has('persistent_undo')
   if exists("&undodir")
     set undofile
