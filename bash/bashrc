@@ -2,7 +2,3 @@
 
 export PATH=/Users/cgalindo/.local/bin:$PATH
 
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[ -f /Users/cgalindo/.config/yarn/global/node_modules/tabtab/.completions/yarn.bash ] && . /Users/cgalindo/.config/yarn/global/node_modules/tabtab/.completions/yarn.bash
-
