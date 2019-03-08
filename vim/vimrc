@@ -326,7 +326,7 @@ set backupdir=~/.vim/backups/
 if has('persistent_undo')
   if exists("&undodir")
     set undofile
-    set undodir=~/.vim/undo//
+    set undodir=~/.vim/undo/
     set undoreload=10000
   endif
 endif

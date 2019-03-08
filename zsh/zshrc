@@ -1,0 +1,44 @@
+source ~/antigen.zsh
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+# Add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
+PATH=$HOME/bin:$PATH
+PATH=$PATH:$(yarn global bin)
+PATH=/usr/local/opt/gradle@2.14/bin:$PATH
+
+# Load the oh-my-zsh library.
+antigen use oh-my-zsh
+
+antigen bundle git
+antigen bundle docker
+antigen bundle kubectl
+antigen bundle minikube
+antigen bundle yarn
+antigen bundle brew
+antigen bundle colored-man-pages
+
+antigen bundle lukechilds/zsh-nvm
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle walesmd/caniuse.plugin.zsh
+antigen bundle chrissicool/zsh-256color
+antigen bundle zsh-users/zsh-autosuggestions
+
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+antigen theme bhilburn/powerlevel9k powerlevel9k
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMETNS="conext dir_writeable vsc"
+
+ENABLE_CORRECTION="true"
+
+alias lc='colorls --tree --dark'
+alias less='less -R'
+alias ll='colorls --dark --sort-dirs --report -la'
+alias ls='colorls --dark --sort-dirs --report -l'
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+antigen apply

@@ -1,6 +1,6 @@
 DIR=~/dotfiles
 
-all: symlinks install_vimplug completion
+all: symlinks install_vimplug install_antigen completion
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
@@ -12,10 +12,14 @@ symlinks:
 	@ln -sf $(DIR)/git/gitignore_global ~/.gitignore_global
 	@ln -sf $(DIR)/colordiffrc ~/.colordiffrc
 	@ln -sf $(DIR)/screenrc ~/.screenrc
+	@ln -sf $(DIR)/zsh/zshrc ~/.zshrc
 
 install_vimplug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+install_antigen:
+	curl -L git.io/antigen > ~/antigen.zsh
 
 completion:
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash

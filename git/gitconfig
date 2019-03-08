@@ -1,7 +1,5 @@
 # This is Git's per-user configuration file.
 [user]
-	name = Colin Galindo
-    email = galindo.colin@gmail.com
 
 [alias]
   f = fetch --all --prune
