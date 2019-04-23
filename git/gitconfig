@@ -14,6 +14,7 @@
   rbs = rebase -S
   cp = cherry-pick
   prettylog = "!git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative \"$1\"..\"$2\""
+  d = diff --ignore-space-at-eol -b -w --ignore-blank-lines
 
 [color]
   # Use colors in Git commands that are capable of colored output when

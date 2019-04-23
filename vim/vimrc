@@ -7,6 +7,7 @@
 
   " Vim Airline improves the look & functionality of the statusline.
   Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+  Plug 'kaicataldo/material.vim'
 
   " Surround.vim lets you add/change/remove surrounding chars and tags
   " https://github.com/tpope/vim-surround
@@ -178,6 +179,8 @@ Plug 'junegunn/vim-emoji'
 " Color schemes
 Plug 'altercation/vim-colors-solarized'
 
+Plug 'tfnico/vim-gradle'
+
 " Plugins to load on OS X only
 if has("unix")
   let s:uname = system("uname -s")
@@ -305,6 +308,22 @@ endif
 
 " Set colorscheme
 " Allow color schemes to do bright colors without forcing bold.
+if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+"For Neovim > 0.1.5 and Vim > patch 7.4.1799 <
+" https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162
+">
+"Based on Vim patch 7.4.1770 (`guicolors` option) <
+"https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd
+">
+" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 if &t_Co == 8 && $TERM !~# '^linux'
   set t_Co=16
 endif
@@ -312,8 +331,9 @@ if $TERM =~ "-256color"
   set t_Co=256
 endif
 set background=dark
-silent! colorscheme solarized
-let g:airline_theme='solarized'		" Colors for vim-airline
+let g:material_theme_style = 'dark'
+colorscheme material
+let g:airline_theme = 'material'		" Colors for vim-airline
 
 " Allow gx to open urls in the browser
 let g:netrw_browsex_viewer = 'open'
@@ -425,7 +445,7 @@ nnoremap <silent> <leader>a :ArgWrap<CR>
 let g:argwrap_tail_comma = 1
 
 " Gitgutter config
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " Syntastic config
 let g:syntastic_enable_signs = 1 " check if this slows things down

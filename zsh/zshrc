@@ -6,6 +6,7 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 PATH=$HOME/bin:$PATH
 PATH=$PATH:$(yarn global bin)
 PATH=/usr/local/opt/gradle@2.14/bin:$PATH
+PATH=~/.deno/bin:$PATH
 
 # Load the oh-my-zsh library.
 antigen use oh-my-zsh
@@ -33,12 +34,15 @@ ENABLE_CORRECTION="true"
 
 alias lc='colorls --tree --dark'
 alias less='less -R'
-alias ll='colorls --dark --sort-dirs --report -la'
-alias ls='colorls --dark --sort-dirs --report -l'
-
+alias ls='colorls --dark --report --sort-dirs -l'
+alias ll='ls -a'
+alias deno_init="deno https://denolib.com/zhmushan/deno_init/mod.ts --allow-write --allow-run --allow-env"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 antigen apply
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
