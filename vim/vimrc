@@ -87,6 +87,7 @@ Plug 'rizzatti/dash.vim'
 " Adds the :G family of commands for grepping. Automatically decides between
 " Ag, Ack and Grep depending on what's available.
 " https://github.com/rizzatti/greper.vim
+Plug 'rizzatti/funcoo.vim'
 Plug 'rizzatti/greper.vim'
 
 " This is a dependency of Dash.vim and Grepper.vim
@@ -333,7 +334,6 @@ endif
 set background=dark
 let g:material_theme_style = 'dark'
 colorscheme material
-let g:airline_theme = 'material'		" Colors for vim-airline
 
 " Allow gx to open urls in the browser
 let g:netrw_browsex_viewer = 'open'
