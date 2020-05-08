@@ -52,6 +52,8 @@ Plug 'MartinLafreniere/vim-PairTools'
 " https://github.com/ctrlpvim/ctrlp.vim
 Plug 'ctrlpvim/ctrlp.vim'
 
+Plug 'duganchen/vim-soy'
+
 " Tabular.vim is a plugin that aligns text by some pattern, e.g.:
 " :Tab /,
 " will align lines by their commas. We have some mappings set up later, like

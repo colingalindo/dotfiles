@@ -8,7 +8,7 @@
   dm = "!git branch --merged | grep -v '\\*' | grep -v master | grep -v development | grep -v dev | xargs -n 1 git branch -d"
   rb = "rebase"
   co = "checkout"
-  temp = "!git add --all && git commit -m \"Temp commit\" -n"
+  temp = "!git add --all && HUSKY_SKIP_HOOKS=1 git commit -m \"Temp commit\" -n"
   untemp = reset HEAD^
   c = commit
   cs = commit -S

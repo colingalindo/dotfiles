@@ -7,6 +7,7 @@ PATH=$HOME/bin:$PATH
 PATH=$PATH:$(yarn global bin)
 PATH=/usr/local/opt/gradle@2.14/bin:$PATH
 PATH=~/.deno/bin:$PATH
+PATH=$HOME/.cargo/bin:$PATH
 
 # Load the oh-my-zsh library.
 antigen use oh-my-zsh
@@ -20,21 +21,21 @@ antigen bundle brew
 antigen bundle colored-man-pages
 
 antigen bundle lukechilds/zsh-nvm
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle walesmd/caniuse.plugin.zsh
 antigen bundle chrissicool/zsh-256color
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle MikeDacre/careful_rm
+antigen bundle tomsquest/nvm-auto-use.zsh
+antigen bundle zpm-zsh/tmux
 
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
-antigen theme bhilburn/powerlevel9k powerlevel9k
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMETNS="conext dir_writeable vsc"
+antigen theme wesbos/Cobalt2-iterm
 
 ENABLE_CORRECTION="true"
 
-alias lc='colorls --tree --dark'
+#alias lc='colorls --tree --dark'
 alias less='less -R'
-alias ls='colorls --dark --report --sort-dirs -l'
+#alias ls='colorls --dark --report --sort-dirs -l'
 alias ll='ls -a'
 alias deno_init="deno https://denolib.com/zhmushan/deno_init/mod.ts --allow-write --allow-run --allow-env"
 
