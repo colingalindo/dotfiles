@@ -38,3 +38,6 @@
 	required = true
 [init]
 	templatedir = ~/.git-templates
+	defaultBranch = primary
+[gpg]
+	program = gpg

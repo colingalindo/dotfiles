@@ -4,10 +4,10 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 # Add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
 PATH=$HOME/bin:$PATH
-PATH=$PATH:$(yarn global bin)
-PATH=/usr/local/opt/gradle@2.14/bin:$PATH
-PATH=~/.deno/bin:$PATH
-PATH=$HOME/.cargo/bin:$PATH
+#PATH=$PATH:$(yarn global bin)
+#PATH=/usr/local/opt/gradle@2.14/bin:$PATH
+#PATH=~/.deno/bin:$PATH
+#PATH=$HOME/.cargo/bin:$PATH
 
 # Load the oh-my-zsh library.
 antigen use oh-my-zsh
@@ -25,7 +25,7 @@ antigen bundle zdharma/fast-syntax-highlighting
 antigen bundle walesmd/caniuse.plugin.zsh
 antigen bundle chrissicool/zsh-256color
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle MikeDacre/careful_rm
+antigen bundle mattmc3/zsh-safe-rm
 antigen bundle tomsquest/nvm-auto-use.zsh
 antigen bundle zpm-zsh/tmux
 
@@ -33,9 +33,9 @@ antigen theme wesbos/Cobalt2-iterm
 
 ENABLE_CORRECTION="true"
 
-#alias lc='colorls --tree --dark'
+alias lc='colorls --tree --dark'
 alias less='less -R'
-#alias ls='colorls --dark --report --sort-dirs -l'
+alias ls='colorls --dark --report --sort-dirs -l'
 alias ll='ls -a'
 alias deno_init="deno https://denolib.com/zhmushan/deno_init/mod.ts --allow-write --allow-run --allow-env"
 
@@ -46,4 +46,20 @@ export NVM_DIR="$HOME/.nvm"
 antigen apply
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/Users/colingalindo/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+    # eval "$__conda_setup"
+# else
+    # if [ -f "/Users/colingalindo/anaconda3/etc/profile.d/conda.sh" ]; then
+    #     . "/Users/colingalindo/anaconda3/etc/profile.d/conda.sh"
+    # else
+    #     export PATH="/Users/colingalindo/anaconda3/bin:$PATH"
+    # fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
 
